@@ -3,4 +3,7 @@ git commit -am "added f.end files to django"
 
 git remote add origin https://github.com/Kalyan-Skilltech/Elite.git
 git push -u origin main
+python manage.py createsuperuser
+
+I just had to restart apache service. service apache2 restart. Then new models shown up.
 
