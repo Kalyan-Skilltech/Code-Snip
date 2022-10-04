@@ -1,5 +1,5 @@
 ===============>>>><img src="{% static 'images/logo/logo-light.png'  %}" 
-
+https://stackoverflow.com/questions/70656495/importerror-cannot-import-name-ugettext-lazy
 A-- CURD Search
 IMUL-- Media Settings
 NIC-------signup email
