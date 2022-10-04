@@ -1,5 +1,8 @@
 ===============>>>><img src="{% static 'images/logo/logo-light.png'  %}" 
 https://stackoverflow.com/questions/70656495/importerror-cannot-import-name-ugettext-lazy
+
+booking_no_for_enquiry = models.CharField(primary_key=True,default='{}{:%Y%m%d%H%M%S}'.format(str(uuid.uuid4().hex), datetime.now()), max_length=100, editable=False)	
+
 A-- CURD Search
 IMUL-- Media Settings
 NIC-------signup email
@@ -88,7 +91,13 @@ customer_name = models.CharField(max_length=30,null=False)
 	location_to = models.CharField(max_length=30)
 	shifting_date = models.DateField()
 
+#from django.contrib.auth.models import AbstractUser
 
+
+"""class User(AbstractUser):
+	userimg = models.ImageField(upload_to='profile_images', default='blank-profile-picture.png')
+	userphone = models.CharField(max_length=10, validators=[RegexValidator(r'^\d{1,10}$')])
+"""
 
 
 
