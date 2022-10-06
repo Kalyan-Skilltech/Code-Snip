@@ -1,4 +1,17 @@
 ===============>>>><img src="{% static 'images/logo/logo-light.png'  %}" 
+
+
+<img alt="image" src="{{user_object.userimg.url}}"  class="rounded-circle author-box-picture">
+/media/2.png
+
+user and profile are 1-1
+
+tmp=User.objects.get(username=request.user.username)
+	user_object = Profile.objects.get(user_id=tmp.id)
+	context={
+	'user_object':user_object,
+	}
+
 https://stackoverflow.com/questions/70656495/importerror-cannot-import-name-ugettext-lazy
 
 booking_no_for_enquiry = models.CharField(primary_key=True,default='{}{:%Y%m%d%H%M%S}'.format(str(uuid.uuid4().hex), datetime.now()), max_length=100, editable=False)	
