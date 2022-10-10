@@ -1,5 +1,5 @@
 ===============>>>><img src="{% static 'images/logo/logo-light.png'  %}" 
-
+https://docs.mapbox.com/mapbox-gl-js/example/mapbox-gl-geocoder-outside-the-map/
 
 <img alt="image" src="{{user_object.userimg.url}}"  class="rounded-circle author-box-picture">
 /media/2.png
