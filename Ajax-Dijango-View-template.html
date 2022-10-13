@@ -1,0 +1,72 @@
+
+def tracking(request):
+	if is_ajax(request):
+		tracking = int(request.POST.get('tracking', None) )
+		customerlist_obj=Enquiryform.objects.filter(booking_no_for_enquiry=tracking).values()
+		if customerlist_obj: #cheking if first_name and last_name have value
+			response = {
+						 'msg':customerlist_obj[0]['tracking_status']# response message
+			}
+			return JsonResponse(response) # return response as JSON  
+
+
+
+
+
+
+path('tracking',views.tracking,name='tracking'),
+
+
+
+ <form id="form" method="post">
+           
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                          <div class="form-group">
+                            <label>Tracking Number</label>
+                            <div class="form-group">
+                              <input type="text" name="tracking" id="tracking" class="form-control" placeholder="Please Enter Your Tracking Number">
+                            </div>
+                          </div>
+                        </div><!-- /.col-lg-12 -->
+                        
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                         <button type="submit" class="btn btn__secondary btn__block">Track & Trace</button> 
+                        </div><!-- /.col-lg-12 -->
+                        </form>
+                      </div>
+                    </div><!-- /.request__form-body -->
+                   <div id="output">
+                     </div>
+
+
+ <script>
+         $('#form').on('submit', function(e){
+             
+         e.preventDefault();
+         
+           $.ajax({
+                type : "POST", 
+                url: "{% url 'tracking' %}",
+                data: {
+                 tracking : $('#tracking').val(),
+                 csrfmiddlewaretoken: '{{ csrf_token }}',
+                 dataType: "json",
+         
+                },
+                
+                success: function(data){
+                   $('#output').html(data.msg) /* response message */
+                },
+         
+                failure: function() {
+                    
+                }
+         
+         
+            });
+         
+         
+                 });    
+      </script>
+
+
